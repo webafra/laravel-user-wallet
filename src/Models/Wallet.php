@@ -3,11 +3,11 @@
 namespace Webafra\LaravelUserWallet\Models;
 
 use App\Enums\WalletEnums;
-use Webafra\LaravelUserWallet\Traits\BalanceOperation;
-use Webafra\LaravelUserWallet\Traits\Loggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Webafra\LaravelUserWallet\Traits\BalanceOperation;
+use Webafra\LaravelUserWallet\Traits\Loggable;
 
 /**
  * Webafra\LaravelUserWallet\Models\Wallet

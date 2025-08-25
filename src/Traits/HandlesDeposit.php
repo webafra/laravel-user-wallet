@@ -3,10 +3,10 @@
 namespace Webafra\LaravelUserWallet\Traits;
 
 use App\Enums\WalletEnums;
+use Illuminate\Support\Facades\DB;
 use Webafra\LaravelUserWallet\Exceptions\InvalidDepositException;
 use Webafra\LaravelUserWallet\Exceptions\InvalidValueException;
 use Webafra\LaravelUserWallet\Exceptions\InvalidWalletTypeException;
-use Illuminate\Support\Facades\DB;
 
 trait HandlesDeposit
 {
@@ -26,7 +26,7 @@ trait HandlesDeposit
         }
 
         if ($amount <= 0) {
-            throw new InvalidValueException();
+            throw new InvalidValueException;
         }
 
         DB::transaction(function () use ($type, $amount, $notes) {

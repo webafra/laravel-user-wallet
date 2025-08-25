@@ -8,7 +8,6 @@ use Webafra\LaravelUserWallet\Commands\LaravelUserWalletCommand;
 
 class LaravelUserWalletServiceProvider extends PackageServiceProvider
 {
-
     public function configurePackage(Package $package): void
     {
         /*
@@ -20,7 +19,7 @@ class LaravelUserWalletServiceProvider extends PackageServiceProvider
             ->name('laravel-user-wallet')
             ->hasConfigFile()
             ->hasViews()
-             ->hasMigrations(
+            ->hasMigrations(
                 'create_wallets_logs_table',
                 'create_wallets_table',
                 'add_notes_and_reference_columns_to_wallets_logs_table'
@@ -28,7 +27,7 @@ class LaravelUserWalletServiceProvider extends PackageServiceProvider
             ->hasCommand(LaravelUserWalletCommand::class);
     }
 
-     public function bootingPackage()
+    public function bootingPackage()
     {
         $this->publishes([
             __DIR__.'/../Enums/' => app_path('Enums'),

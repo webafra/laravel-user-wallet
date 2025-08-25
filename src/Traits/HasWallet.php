@@ -3,10 +3,10 @@
 namespace Webafra\LaravelUserWallet\Traits;
 
 use App\Enums\WalletEnums;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Webafra\LaravelUserWallet\Exceptions\InvalidWalletTypeException;
 use Webafra\LaravelUserWallet\Exceptions\WalletNotFoundException;
 use Webafra\LaravelUserWallet\Models\Wallet;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasWallet
 {

@@ -2,8 +2,8 @@
 
 namespace Webafra\LaravelUserWallet\Traits;
 
-use Webafra\LaravelUserWallet\Exceptions\InsufficientBalanceException;
 use Illuminate\Support\Facades\DB;
+use Webafra\LaravelUserWallet\Exceptions\InsufficientBalanceException;
 
 trait HandlesPayment
 {

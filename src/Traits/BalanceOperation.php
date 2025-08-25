@@ -2,8 +2,8 @@
 
 namespace Webafra\LaravelUserWallet\Traits;
 
-use Webafra\LaravelUserWallet\Models\WalletsLog;
 use InvalidArgumentException;
+use Webafra\LaravelUserWallet\Models\WalletsLog;
 
 trait BalanceOperation
 {

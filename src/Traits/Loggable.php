@@ -2,8 +2,8 @@
 
 namespace Webafra\LaravelUserWallet\Traits;
 
-use Webafra\LaravelUserWallet\Models\WalletsLog;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Webafra\LaravelUserWallet\Models\WalletsLog;
 
 trait Loggable
 {
