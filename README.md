@@ -42,8 +42,8 @@ To use this package you need to implement the `WalletOperations` into `User` mod
 
 ```php
 
-use HPWebdeveloper\LaravelPayPocket\Interfaces\WalletOperations;
-use HPWebdeveloper\LaravelPayPocket\Traits\ManagesWallet;
+use Webafra\LaravelUserWallet\Interfaces\WalletOperations;
+use Webafra\LaravelUserWallet\Traits\ManagesWallet;
 
 class User extends Authenticatable implements WalletOperations
 {
@@ -101,7 +101,7 @@ $user->deposit('wallet_2', 67.89);
 Or using provided facade
 
 ```php
-use HPWebdeveloper\LaravelPayPocket\Facades\LaravelPayPocket;
+use Webafra\LaravelUserWallet\Facades\LaravelPayPocket;
 
 $user = auth()->user();
 LaravelPayPocket::deposit($user, 'wallet_1', 123.45);
@@ -135,7 +135,7 @@ $user->pay(12.34);
 Or using provided facade
 
 ```php
-use HPWebdeveloper\LaravelPayPocket\Facades\LaravelPayPocket;
+use Webafra\LaravelUserWallet\Facades\LaravelPayPocket;
 
 $user = auth()->user();
 LaravelPayPocket::pay($user, 12.34);
@@ -167,7 +167,7 @@ LaravelPayPocket::walletBalanceByType($user, 'wallet_1');
 ### Exceptions
 
 Upon examining the `src/Exceptions` directory within the source code,
-you will discover a variety of exceptions tailored to address each scenario of invalid entry. Review the [demo](https://github.com/HPWebdeveloper/demo-pay-pocket) that accounts for some of the exceptions.
+you will discover a variety of exceptions tailored to address each scenario of invalid entry.
 
 
 ## Changelog
