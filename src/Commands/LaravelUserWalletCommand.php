@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Webafra\LaravelUserWallet\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelUserWalletCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-user-wallet';
 
     public $description = 'My command';
 
