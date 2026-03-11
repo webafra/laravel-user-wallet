@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-user-wallet` will be documented in this file.
 
+## v2.0.1 - 2026-03-11
+
+### update document
+
 ## v2.0.0 - 2026-03-11
 
 ### ✨ Improvements
