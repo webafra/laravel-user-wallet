@@ -73,4 +73,29 @@ trait HasWallet
     {
         return $this->walletBalance;
     }
+
+    private function getWalletableTypes(): array
+    {
+        $depositableTypes = [];
+        foreach (WalletEnums::cases() as $enumCase) {
+            $depositableTypes[$enumCase->value] = strtolower($enumCase->name);
+        }
+
+        return $depositableTypes;
+    }
+
+    /**
+     * Check if the given type is valid.
+     *
+     * @throws InvalidWalletTypeException
+     */
+    private function isRequestValid($type, array $depositable): bool
+    {
+        if (! array_key_exists($type, $depositable)) {
+            throw new InvalidWalletTypeException('Invalid deposit type.');
+        }
+
+        return true;
+    }
+
 }
