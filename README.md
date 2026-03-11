@@ -101,10 +101,10 @@ $user->deposit('wallet_2', 67.89);
 Or using provided facade
 
 ```php
-use Webafra\LaravelUserWallet\Facades\LaravelPayPocket;
+use Webafra\LaravelUserWallet\Facades\LaravelUserWallet;
 
 $user = auth()->user();
-LaravelPayPocket::deposit($user, 'wallet_1', 123.45);
+LaravelUserWallet::deposit($user, 'wallet_1', 123.45);
 
 ```
 
@@ -135,10 +135,12 @@ $user->pay(12.34);
 Or using provided facade
 
 ```php
-use Webafra\LaravelUserWallet\Facades\LaravelPayPocket;
+use Webafra\LaravelUserWallet\Facades\LaravelUserWallet;
 
 $user = auth()->user();
-LaravelPayPocket::pay($user, 12.34);
+LaravelUserWallet::pay($user, 12.34); # decrease from all wallets
+LaravelUserWallet::pay($user, 12.34, type: 'wallet_1');
+LaravelUserWallet::pay($user, 12.34, type: 'wallet_1', notes: 'payment notes');
 ```
 
 ### Balance
@@ -150,7 +152,7 @@ $user->walletBalance // Total combined balance available across all wallets
 
 // Or using provided facade
 
-LaravelPayPocket::checkBalance($user);
+LaravelUserWallet::checkBalance($user);
 ```
 
 -   **Particular Wallet**
@@ -161,7 +163,7 @@ $user->getWalletBalanceByType('wallet_2') // Balance available in wallet_2
 
 // Or using provided facade
 
-LaravelPayPocket::walletBalanceByType($user, 'wallet_1');
+LaravelUserWallet::walletBalanceByType($user, 'wallet_1');
 ```
 
 ### Exceptions
