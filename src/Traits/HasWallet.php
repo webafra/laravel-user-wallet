@@ -97,5 +97,4 @@ trait HasWallet
 
         return true;
     }
-
 }

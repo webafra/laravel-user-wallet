@@ -2,36 +2,34 @@
 
 namespace Webafra\LaravelUserWallet\Traits;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Webafra\LaravelUserWallet\Exceptions\InsufficientBalanceException;
 use Webafra\LaravelUserWallet\Exceptions\InvalidDepositException;
 use Webafra\LaravelUserWallet\Exceptions\InvalidValueException;
+use Webafra\LaravelUserWallet\Models\Wallet;
 
 trait HandlesPayment
 {
-
     /**
      * Pay the order value from the user's wallets.
      *
      * @throws InsufficientBalanceException
      * @throws InvalidDepositException
      */
-
     public function pay(int|float $amount, ?string $type = null, ?string $notes = null): void
     {
         $paymentable = $this->getWalletableTypes();
 
         if ($type) {
-            if (!$this->isRequestValid($type, $paymentable)) {
+            if (! $this->isRequestValid($type, $paymentable)) {
                 throw new InvalidDepositException('Invalid payment request.');
             }
         }
 
-
         if ($amount <= 0) {
             throw new InvalidValueException;
         }
-
 
         if ($type) {
             $balance = $this->getWalletBalanceByType($type);
@@ -39,24 +37,21 @@ trait HandlesPayment
                 throw new InsufficientBalanceException('Insufficient balance to cover the order.');
             }
         } else {
-            if (!$this->hasSufficientBalance($amount)) {
+            if (! $this->hasSufficientBalance($amount)) {
                 throw new InsufficientBalanceException('Insufficient balance to cover the order.');
             }
         }
-
 
         DB::transaction(function () use ($amount, $type, $notes) {
             $remainingOrderValue = $amount;
 
             /**
-             * @var \Illuminate\Support\Collection<TKey, \Webafra\LaravelUserWallet\Models\Wallet>
+             * @var Collection<TKey, Wallet>
              */
-
             $walletsInOrder = $this->wallets()->whereIn('type', $type ? [$type] : $this->walletsInOrder())->get();
 
-
             foreach ($walletsInOrder as $wallet) {
-                if (!$wallet || !$wallet->hasBalance()) {
+                if (! $wallet || ! $wallet->hasBalance()) {
                     continue;
                 }
 
@@ -74,5 +69,4 @@ trait HandlesPayment
             }
         });
     }
-
 }

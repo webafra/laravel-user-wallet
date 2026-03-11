@@ -37,6 +37,4 @@ trait HandlesDeposit
 
         return true;
     }
-
-
 }
