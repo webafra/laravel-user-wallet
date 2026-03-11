@@ -25,12 +25,12 @@ interface WalletOperations
      * Pay the order value from the user's wallets.
      *
      * @throws InsufficientBalanceException
-     */
-    public function pay(int|float $orderValue, ?string $notes = null): void;
-
-    /**
+     *//**
      * Deposit an amount to the user's wallet of a specific type.
      */
+    public function pay(int|float $amount, ?string $type = null, ?string $notes = null): void;
+
+
     public function deposit(string $type, int|float $amount, ?string $notes = null): bool;
 
     /**
