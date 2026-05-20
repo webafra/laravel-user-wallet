@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-user-wallet` will be documented in this file.
 
+## add support laravel 13 - 2026-05-20
+
+### What's Changed
+
+* add Laravel 13 compatibility by @aliefpi in https://github.com/webafra/laravel-user-wallet/pull/8
+
+### New Contributors
+
+* @aliefpi made their first contribution in https://github.com/webafra/laravel-user-wallet/pull/8
+
+**Full Changelog**: https://github.com/webafra/laravel-user-wallet/compare/v2.0.1...v2.0.2
+
 ## v2.0.1 - 2026-03-11
 
 ### update document
