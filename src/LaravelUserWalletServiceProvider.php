@@ -34,13 +34,13 @@ class LaravelUserWalletServiceProvider extends PackageServiceProvider
         ], 'user-wallets');
 
         $this->publishes([
-            __DIR__.'/../config/user-wallet.php' => config_path('user-wallet.php'),
+            __DIR__.'/../config/user_wallet.php' => config_path('user_wallet.php'),
         ], 'config');
     }
 
     public function registeringPackage()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/user-wallet.php', 'user-wallet');
+        $this->mergeConfigFrom(__DIR__.'/../config/user_wallet.php', 'user_wallet');
     }
 }

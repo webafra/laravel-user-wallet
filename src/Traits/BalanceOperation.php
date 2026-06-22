@@ -63,10 +63,10 @@ trait BalanceOperation
      */
     protected function generateReference(): string
     {
-        $className = config('pay-pocket.log_reference_generator_class');
-        $methodName = config('pay-pocket.log_reference_generator_method');
-        $params = (array) config('pay-pocket.log_reference_params', [12]);
-        $prefix = config('pay-pocket.log_reference_prefix');
+        $className = config('user_wallet.log_reference_generator_class');
+        $methodName = config('user_wallet.log_reference_generator_method');
+        $params = (array) config('user_wallet.log_reference_params', [12]);
+        $prefix = config('user_wallet.log_reference_prefix');
 
         if (! is_callable([$className, $methodName])) {
             throw new InvalidArgumentException('Invalid configuration: The combination of log_reference_generator_class and log_reference_generator_method is not callable.');
